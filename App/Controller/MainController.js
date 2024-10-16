@@ -8,6 +8,7 @@ export class MainController {
   listenForCityInput() {
     this.#inputCityBtn.addEventListener("click", (event) => {
       event.preventDefault();
+      const display = new Display();
 
       let inputCityValue = this.#inputCity.value;
 
@@ -15,9 +16,10 @@ export class MainController {
       if (inputCityValue !== "") {
         const apiModel = new ApiModel();
         let recivedData = apiModel.fetchApiCall(inputCityValue);
-        console.log(recivedData);
+        // Store result in variable and pass it to Display (View)
         recivedData.then((result) => {
-          console.log(result);
+          let cleanResult = JSON.stringify(result);
+          display.displayUi(cleanResult);
         });
       }
     });

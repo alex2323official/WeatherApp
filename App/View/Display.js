@@ -9,5 +9,8 @@ export class Display {
   #todayHumidity = document.querySelector("#todayHumidity");
   #todayWindSpeed = document.querySelector("#todayWindSpeed");
 
-  DisplayUi() {}
+  displayUi(data) {
+    let correctData = JSON.parse(data);
+    console.log(correctData.fullAddress);
+  }
 }
