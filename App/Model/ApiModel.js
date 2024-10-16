@@ -1,4 +1,6 @@
 export class ApiModel {
+  static ApiData = {};
+
   callWeatherApi(city) {
     console.log(city);
     this.fetchApiCall(city);
@@ -12,7 +14,7 @@ export class ApiModel {
       );
       const data = await response.json();
 
-      // Return Object with needed data (pass it to View)
+      // Make Object with needed data
       let dataForDisplay = {
         fullAddress: data.resolvedAddress,
         description: data.days[0].conditions,
@@ -22,8 +24,10 @@ export class ApiModel {
         humidity: data.days[0].humidity,
         windSpeed: data.days[0].windspeed,
       };
-      console.table(dataForDisplay);
-      return dataForDisplay;
+
+      //   Pass this data to static object variable
+      ApiModel.ApiData = dataForDisplay;
+      console.table(ApiModel.ApiData);
     } catch (error) {
       console.error("Error fetching data: ", error);
     }
