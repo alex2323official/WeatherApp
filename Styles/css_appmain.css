@@ -37,3 +37,16 @@ body {
 
 .header__switch-temp-unit {
 }
+
+/* Today Weather */
+.today__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.today__big {
+}
+
+.today__small {
+}
