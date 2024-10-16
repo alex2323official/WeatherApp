@@ -1,11 +1,6 @@
 export class ApiModel {
   static ApiData = {};
 
-  callWeatherApi(city) {
-    console.log(city);
-    this.fetchApiCall(city);
-  }
-
   async fetchApiCall(city) {
     // Call Visual Crossing API
     try {
@@ -25,10 +20,8 @@ export class ApiModel {
         windSpeed: data.days[0].windspeed,
       };
 
-      //   Pass this data to static object variable
-      ApiModel.ApiData = {};
-      ApiModel.ApiData = dataForDisplay;
-      console.table(ApiModel.ApiData);
+      //   console.table(dataForDisplay);
+      return dataForDisplay;
     } catch (error) {
       console.error("Error fetching data: ", error);
     }

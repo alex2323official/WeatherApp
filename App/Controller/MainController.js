@@ -1,4 +1,5 @@
 import { ApiModel } from "../Model/ApiModel";
+import { Display } from "../View/Display";
 
 export class MainController {
   #inputCity = document.querySelector("#inputCity");
@@ -13,9 +14,11 @@ export class MainController {
       // callWeatherApi() from Model
       if (inputCityValue !== "") {
         const apiModel = new ApiModel();
-        apiModel.callWeatherApi(inputCityValue);
-
-        // Use ApiModel.ApiData to display changes with Contoller
+        let recivedData = apiModel.fetchApiCall(inputCityValue);
+        console.log(recivedData);
+        recivedData.then((result) => {
+          console.log(result);
+        });
       }
     });
   }
