@@ -9,16 +9,31 @@ export class Display {
   #todayHumidity = document.querySelector("#todayHumidity");
   #todayWindSpeed = document.querySelector("#todayWindSpeed");
 
+  #inputCelcius = document.querySelector("#switchUnits");
+
   displayUi(data) {
     let correctData = JSON.parse(data);
-    console.log(correctData);
+    let unit = "";
+    let todayTemp = correctData.currentTemp;
+    let todayFeels = correctData.feelsLikeTemp;
 
-    this.#todayTemp.textContent = correctData.currentTemp;
+    if (this.#inputCelcius.checked) {
+      console.log("celcius");
+      unit = "℃";
+    } else {
+      console.log("fahrenheit");
+      unit = "℉";
+      todayTemp = (todayTemp * 9) / 5 + 32;
+      todayTemp = Math.floor(todayTemp * 100) / 100;
+      todayFeels = (todayTemp * 9) / 5 + 32;
+      todayFeels = Math.floor(todayFeels * 100) / 100;
+    }
+    this.#todayTemp.textContent = `Temperature: ${todayTemp} ${unit}`;
     this.#todayAddress.textContent = correctData.fullAddress;
     this.#todayDate.textContent = correctData.currentDate;
     this.#todayDescription.textContent = correctData.description;
-    this.#todayFeelsLike.textContent = correctData.feelsLikeTemp;
-    this.#todayHumidity.textContent = correctData.humidity;
-    this.#todayWindSpeed.textContent = correctData.windSpeed;
+    this.#todayFeelsLike.textContent = `Feels like temperature: ${todayFeels} ${unit}`;
+    this.#todayHumidity.textContent = `Humidity: ${correctData.humidity}`;
+    this.#todayWindSpeed.textContent = `Wind Speed: ${correctData.windSpeed} km/h`;
   }
 }
