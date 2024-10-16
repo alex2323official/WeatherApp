@@ -26,6 +26,7 @@ export class ApiModel {
       };
 
       //   Pass this data to static object variable
+      ApiModel.ApiData = {};
       ApiModel.ApiData = dataForDisplay;
       console.table(ApiModel.ApiData);
     } catch (error) {
