@@ -7,6 +7,21 @@
     <title>Weather App</title>
   </head>
   <body>
+    <header class="header">
+      <form action="#" class="header__form">
+        <input
+          type="text"
+          name="inputCity"
+          id="inputCity"
+          placeholder="Insert here city name"
+        />
+        <button type="button" id="inputCityBtn">Submit</button>
+      </form>
+      <div class="header__switch-container">
+        <input type="checkbox" name="switchUnits" id="switchUnits" />
+        <span class="header__switch-temp-unit">C*</span>
+      </div>
+    </header>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

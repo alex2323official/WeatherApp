@@ -1,3 +1,39 @@
 body {
   background-color: rgb(43, 40, 40);
+  width: 100%;
+  color: white;
+  font-size: 1rem;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  padding: 2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Header: Form */
+.header__form {
+  margin: 0 auto;
+}
+
+#inputCity {
+  padding: 0.5rem 2rem;
+}
+
+#inputCityBtn {
+  margin-left: 0.5rem;
+  padding: 0.5rem 2rem;
+}
+
+/* Header: Switch */
+.header__switch-container {
+}
+
+#switchUnits {
+}
+
+.header__switch-temp-unit {
 }
